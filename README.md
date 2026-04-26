@@ -1,3 +1,7 @@
+## 🔗 Live Demo
+
+[View the App](YOUR_VERCEL_URL_HERE)
+
 # 🚀 AI-Augmented Software Engineer Bootcamp App
 
 A 12-week structured training system designed to rapidly build real-world software engineering skills through intentional practice, project-based learning, and AI-assisted workflows.
