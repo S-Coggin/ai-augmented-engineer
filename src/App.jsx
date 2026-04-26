@@ -333,6 +333,7 @@ export default function TrainingApp() {
   const [completed, setCompleted] = useState(saved?.completed || {});
   const [notes, setNotes] = useState(saved?.notes || {});
   const [projects, setProjects] = useState(saved?.projects || starterProjects);
+  const [showAllProjects, setShowAllProjects] = useState(false);
 
   useEffect(() => {
     try {
@@ -344,6 +345,13 @@ export default function TrainingApp() {
 
   const week = defaultCourse.find((item) => item.week === activeWeek) || defaultCourse[0];
   const progress = useMemo(() => calculateProgress(completed), [completed]);
+  const sortedProjects = [...projects].sort(
+    (a, b) => (b.progress || 0) - (a.progress || 0)
+  );
+
+  const visibleProjects = showAllProjects
+    ? sortedProjects
+    : sortedProjects.slice(0, 4);
 
   const toggle = (id) => setCompleted((prev) => ({ ...prev, [id]: !prev[id] }));
   const addProject = () => setProjects((prev) => [...prev, { name: "New Project", url: "", status: "Planned", progress: 0, lastUpdated: formatDateTime() }]);
@@ -477,31 +485,41 @@ export default function TrainingApp() {
                   <Button size="sm" onClick={addProject} className="rounded-xl"><Icon name="plus" className="w-4 h-4" /></Button>
                 </div>
                 <div className="space-y-3">
-                  {projects.map((project, index) => (
-                    <div key={`${project.name}-${index}`} className="rounded-2xl bg-zinc-950 border border-zinc-800 p-3 space-y-3">
-                      <input value={project.name} onChange={(e) => updateProject(index, "name", e.target.value)} className="w-full bg-transparent font-semibold focus:outline-none" aria-label="Project name" />
-                      <input value={project.url} onChange={(e) => updateProject(index, "url", e.target.value)} placeholder="GitHub URL" className="w-full rounded-xl bg-zinc-900 border border-zinc-800 p-2 text-xs focus:outline-none focus:ring-2 focus:ring-zinc-600" aria-label="GitHub URL" />
-
-                      <div>
-                        <div className="flex items-center justify-between text-xs text-zinc-400 mb-1">
-                          <span>Project completion</span>
-                          <span>{project.progress || 0}%</span>
+                  {visibleProjects.map((project) => {
+                    const index = projects.indexOf(project);
+                    return (
+                      <div key={`${project.name}-${index}`} className="rounded-2xl bg-zinc-950 border border-zinc-800 p-3 space-y-3">
+                        <input value={project.name} onChange={(e) => updateProject(index, "name", e.target.value)} className="w-full bg-transparent font-semibold focus:outline-none" aria-label="Project name" />
+                        <input value={project.url} onChange={(e) => updateProject(index, "url", e.target.value)} placeholder="GitHub URL" className="w-full rounded-xl bg-zinc-900 border border-zinc-800 p-2 text-xs focus:outline-none focus:ring-2 focus:ring-zinc-600" aria-label="GitHub URL" />
+                        <div>
+                          <div className="flex items-center justify-between text-xs text-zinc-400 mb-1">
+                            <span>Project completion</span>
+                            <span>{project.progress || 0}%</span>
+                          </div>
+                          <input type="range" min="0" max="100" step="5" value={project.progress || 0} onChange={(e) => updateProject(index, "progress", e.target.value)} className="w-full" aria-label="Project completion percent" />
                         </div>
-                        <input type="range" min="0" max="100" step="5" value={project.progress || 0} onChange={(e) => updateProject(index, "progress", e.target.value)} className="w-full" aria-label="Project completion percent" />
-                      </div>
 
-                      <div className="flex gap-2">
-                        <select value={project.status} onChange={(e) => updateProject(index, "status", e.target.value)} className="flex-1 rounded-xl bg-zinc-900 border border-zinc-800 p-2 text-xs focus:outline-none" aria-label="Project status">
-                          <option>Planned</option><option>In Progress</option><option>Polishing</option><option>Complete</option>
-                        </select>
-                        {project.url && <a href={project.url} target="_blank" rel="noreferrer" className="rounded-xl bg-zinc-800 px-3 py-2 hover:bg-zinc-700 text-xs flex items-center gap-1" aria-label="Open GitHub project"><Icon name="external" className="w-4 h-4" /> Open</a>}
-                        <button onClick={() => deleteProject(index)} className="rounded-xl bg-zinc-800 p-2 hover:bg-zinc-700" aria-label="Delete project"><Icon name="trash" className="w-4 h-4" /></button>
-                      </div>
+                        <div className="flex gap-2">
+                          <select value={project.status} onChange={(e) => updateProject(index, "status", e.target.value)} className="flex-1 rounded-xl bg-zinc-900 border border-zinc-800 p-2 text-xs focus:outline-none" aria-label="Project status">
+                            <option>Planned</option><option>In Progress</option><option>Polishing</option><option>Complete</option>
+                          </select>
+                          {project.url && <a href={project.url} target="_blank" rel="noreferrer" className="rounded-xl bg-zinc-800 px-3 py-2 hover:bg-zinc-700 text-xs flex items-center gap-1" aria-label="Open GitHub project"><Icon name="external" className="w-4 h-4" /> Open</a>}
+                          <button onClick={() => deleteProject(index)} className="rounded-xl bg-zinc-800 p-2 hover:bg-zinc-700" aria-label="Delete project"><Icon name="trash" className="w-4 h-4" /></button>
+                        </div>
 
-                      <p className="text-[11px] text-zinc-500">Last updated: {project.lastUpdated || "Not updated yet"}</p>
-                    </div>
-                  ))}
+                        <p className="text-[11px] text-zinc-500">Last updated: {project.lastUpdated || "Not updated yet"}</p>
+                      </div>
+                    );
+                  })}
                 </div>
+                {projects.length > 4 && (
+                  <button
+                    onClick={() => setShowAllProjects((prev) => !prev)}
+                    className="mt-4 w-full rounded-xl border border-zinc-700 bg-zinc-950 px-3 py-2 text-sm text-zinc-200 hover:bg-zinc-800"
+                  >
+                    {showAllProjects ? "Show Top Projects" : `View All Projects (${projects.length})`}
+                  </button>
+                )}
               </CardContent>
             </Card>
           </section>
