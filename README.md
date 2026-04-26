@@ -85,3 +85,144 @@ Track your portfolio projects in one place:
 ```bash
 git clone https://github.com/yourusername/your-repo-name.git
 cd your-repo-name
+```
+---
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+---
+
+### 3. Install required packages
+
+```bash
+npm install framer-motion
+npm install -D tailwindcss @tailwindcss/vite
+```
+---
+
+### 4. Configure Vite (Tailwind)
+
+Open vite.config.js and update:
+
+```JavaScript
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+})
+```
+---
+
+### 5. Setup Tailwind styles
+
+Open src/index.css and replace contents with:
+```CSS
+5. Setup Tailwind styles
+
+Open src/index.css and replace contents with:
+```
+---
+
+### 6. Run the app
+```Bash
+6. Run the app
+```
+
+Then open:
+```
+http://localhost:5173
+```
+
+---
+
+## 📁 Project Structure
+```
+src/
+  App.jsx        → Main application logic + UI
+  main.jsx       → App entry point
+  index.css      → Tailwind import
+```
+
+---
+
+## 🧩 Key Components
+### Tooltip
+Reusable hover explanation component used for UX clarity.
+
+---
+
+### Project Tracker Logic
+- Auto name extraction from GitHub URL
+- Progress clamping (0–100%)
+- Timestamp updates on change
+
+---
+
+### Local Storage
+All user data is stored using:
+```JavaScript
+localStorage
+```
+Key:
+```
+ai_engineer_training_app_v1
+```
+
+---
+
+## 🧠 How to Use This App Effectively
+
+### 1. Follow the daily cadence
+Consistency > intensity
+
+---
+
+### 2. Treat projects as proof
+Everything should connect to a real GitHub repo
+
+---
+
+### 3. Use Code / Example actively
+- Run it
+- Break it
+- Fix it
+- Explain it
+
+---
+  
+### 4. Track progress honestly
+The value is not perfection — it’s visibility
+
+--- 
+
+## 🚀 Future Enhancements
+- GitHub API integration (auto-sync repos)
+- Authentication (Firebase / Supabase)
+- Progress streak tracking
+- AI coaching assistant
+- Deployment (Vercel)
+
+---
+
+## 🧭 Philosophy
+This app is not about learning more.
+
+It’s about:
+- building faster
+- thinking better
+- proving skill
+
+---
+
+## 👤 Author
+Built as a high-performance skill acceleration system for modern software engineers.
+
+---
+
+## 📄 License
+MIT
