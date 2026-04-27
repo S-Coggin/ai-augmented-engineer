@@ -1,232 +1,76 @@
+# 🚀 AI-Augmented Engineer Training System
+
+A structured system designed to accelerate software engineering growth by combining **AI-assisted learning, real-world project execution, and measurable output**.
+
+---
+
 ## 🔗 Live Demo
 
-[View the App](YOUR_VERCEL_URL_HERE)
-
-# 🚀 AI-Augmented Software Engineer Bootcamp App
-
-A 12-week structured training system designed to rapidly build real-world software engineering skills through intentional practice, project-based learning, and AI-assisted workflows.
-
-This app functions as a **personal training dashboard**, **project tracker**, and **skill development system**.
+👉 https://ai-augmented-engineer.vercel.app
 
 ---
 
-## ✨ Features
+## 🧠 Why This Exists
 
-### 🧠 Structured 12-Week Curriculum
-- Weekly focus areas (frontend, backend, system design, AI engineering)
-- Clear progression from fundamentals → advanced concepts
-- Built to simulate real-world engineering growth
+Software engineering is shifting.
 
----
+AI is changing how code is written, problems are solved, and teams operate.  
+The value is no longer just in writing code — it's in **thinking in systems, leveraging AI effectively, and delivering real outcomes**.
 
-### 📅 Daily Cadence System
-Each day follows a proven learning loop:
+This project was built as a response to that shift.
 
-- **Recall (20 min)** – write what you remember
-- **Learn (40 min)** – study one focused concept
-- **Build (45 min)** – apply immediately in code
-- **Explain (15 min)** – teach it back in your own words
+Instead of separating learning from building, this system combines both into a single workflow:
+- learn → apply → track → refine
 
 ---
 
-### ✅ Goals & Lessons Tracking
-- Checklist-based progress tracking
-- Reinforces consistency and accountability
-- Stored locally in browser (no backend required)
+## ⚙️ What This App Does
+
+- 📅 Guides a structured 12-week engineering progression  
+- 🧠 Reinforces learning through daily execution loops  
+- 💻 Encourages hands-on coding and debugging practice  
+- 📦 Tracks real GitHub projects and progress  
+- 📊 Provides visibility into actual output and growth  
 
 ---
 
-### 💻 Code / Example Section
-- Provides a focused coding prompt or snippet
-- Designed for:
-  - debugging practice
-  - logic improvement
-  - engineering thinking
+## 🔁 Daily Execution System
 
-💡 **Tip:** Don’t just read — break, fix, and explain.
+Each day follows a repeatable loop:
 
----
+- **Recall** — write what you know  
+- **Learn** — focus on one concept  
+- **Build** — apply it immediately  
+- **Explain** — reinforce understanding  
 
-### 📦 GitHub Project Tracker
-
-Track your portfolio projects in one place:
-
-- Add GitHub repo URLs
-- Auto-extract repo name from URL
-- Track project status:
-  - Planned
-  - In Progress
-  - Polishing
-  - Complete
-- Set completion % with slider
-- “Open Repo” button
-- Automatic **last updated timestamp**
-
-👉 All data is saved in **localStorage**
+This turns passive learning into active skill development.
 
 ---
 
-### 💾 Local Persistence
-- No login required
-- No database required
-- Progress is saved automatically in your browser
+## 📦 Project Tracking
+
+Built-in GitHub tracker allows you to:
+
+- link real repositories  
+- track status and completion %  
+- monitor progress over time  
+- keep everything tied to actual output  
 
 ---
 
 ## 🛠 Tech Stack
 
-- **React (Vite)**
-- **Tailwind CSS (v4 via Vite plugin)**
-- **Framer Motion**
-- LocalStorage (for persistence)
+- React (Vite)  
+- Tailwind CSS  
+- Framer Motion  
+- localStorage  
 
 ---
 
-## ⚡ Getting Started (Fresh Install)
-
-### 1. Clone the repo
+## ⚡ Getting Started
 
 ```bash
-git clone https://github.com/yourusername/your-repo-name.git
-cd your-repo-name
-```
----
-
-### 2. Install dependencies
-
-```bash
+git clone https://github.com/S-Coggin/ai-augmented-engineer.git
+cd ai-augmented-engineer
 npm install
-```
----
-
-### 3. Install required packages
-
-```bash
-npm install framer-motion
-npm install -D tailwindcss @tailwindcss/vite
-```
----
-
-### 4. Configure Vite (Tailwind)
-
-Open vite.config.js and update:
-
-```JavaScript
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
-
-export default defineConfig({
-  plugins: [react(), tailwindcss()],
-})
-```
----
-
-### 5. Setup Tailwind styles
-
-Open src/index.css and replace contents with:
-```CSS
-5. Setup Tailwind styles
-
-Open src/index.css and replace contents with:
-```
----
-
-### 6. Run the app
-```Bash
-6. Run the app
-```
-
-Then open:
-```
-http://localhost:5173
-```
-
----
-
-## 📁 Project Structure
-```
-src/
-  App.jsx        → Main application logic + UI
-  main.jsx       → App entry point
-  index.css      → Tailwind import
-```
-
----
-
-## 🧩 Key Components
-### Tooltip
-Reusable hover explanation component used for UX clarity.
-
----
-
-### Project Tracker Logic
-- Auto name extraction from GitHub URL
-- Progress clamping (0–100%)
-- Timestamp updates on change
-
----
-
-### Local Storage
-All user data is stored using:
-```JavaScript
-localStorage
-```
-Key:
-```
-ai_engineer_training_app_v1
-```
-
----
-
-## 🧠 How to Use This App Effectively
-
-### 1. Follow the daily cadence
-Consistency > intensity
-
----
-
-### 2. Treat projects as proof
-Everything should connect to a real GitHub repo
-
----
-
-### 3. Use Code / Example actively
-- Run it
-- Break it
-- Fix it
-- Explain it
-
----
-  
-### 4. Track progress honestly
-The value is not perfection — it’s visibility
-
---- 
-
-## 🚀 Future Enhancements
-- GitHub API integration (auto-sync repos)
-- Authentication (Firebase / Supabase)
-- Progress streak tracking
-- AI coaching assistant
-- Deployment (Vercel)
-
----
-
-## 🧭 Philosophy
-This app is not about learning more.
-
-It’s about:
-- building faster
-- thinking better
-- proving skill
-
----
-
-## 👤 Author
-Built as a high-performance skill acceleration system for modern software engineers.
-
----
-
-## 📄 License
-MIT
+npm run dev
