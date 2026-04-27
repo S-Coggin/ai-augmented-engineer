@@ -74,3 +74,48 @@ git clone https://github.com/S-Coggin/ai-augmented-engineer.git
 cd ai-augmented-engineer
 npm install
 npm run dev
+```
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+  App.jsx        → Core logic + UI
+  main.jsx       → Entry point
+  index.css      → Tailwind styles
+```
+
+---
+
+
+## 🧠 Approach
+
+This system is built around one core idea:
+  Learning only matters if it turns into output.
+
+Focus areas:
+- building over consuming
+- consistency over intensity
+- proof over theory
+
+---
+
+## 🚀 What’s Next
+- GitHub API integration
+- AI-assisted coaching layer
+- Progress tracking + streak system
+- Expanded project templates
+
+---
+
+## 📌 Note
+Much of my recent work exists in private repositories, including backend systems and production-facing applications.
+
+This project highlights my current independent builds and AI-focused workflows.
+
+## 👤 Author
+
+Sara Coggin
+Software Engineer focused on AI-augmented development and system-based thinking
