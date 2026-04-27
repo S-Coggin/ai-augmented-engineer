@@ -118,4 +118,5 @@ This project highlights my current independent builds and AI-focused workflows.
 ## 👤 Author
 
 Sara Coggin
+
 Software Engineer focused on AI-augmented development and system-based thinking
